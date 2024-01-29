@@ -1,5 +1,6 @@
 void setup()
 {
+  Serial.begin(9600);
   pinMode(12, OUTPUT);
   pinMode(8, INPUT);
   pinMode(11, OUTPUT);
@@ -8,21 +9,22 @@ void setup()
 void loop()
 {
   
-  if(digitalRead(8)){
-    digitalWrite(11, HIGH);
-    delay(250);
+  if(!digitalRead(8)){
     digitalWrite(11, LOW);
     delay(250);
     digitalWrite(11, HIGH);
-    
-    digitalWrite(12, LOW);
+    delay(250);
+    digitalWrite(11, LOW);
+    delay(20);
+    // digitalWrite(12, LOW);
   }
   else {
-    digitalWrite(11, LOW);
-    digitalWrite(12, HIGH);
-    delay(250);
     digitalWrite(12, LOW);
     delay(250);
     digitalWrite(12, HIGH);
+    delay(250);
+    digitalWrite(12, LOW);
+    delay(20);
+    // digitalWrite(11, LOW);
   }
 }
